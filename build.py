@@ -110,7 +110,9 @@ def article(slug,title,desc,cat,img,body,faq):
     fq=('<h2>Questions campers ask</h2>'+"".join(f'<h3>{html.escape(q)}</h3><p>{html.escape(a)}</p>' for q,a in faq)) if faq else ""
     inner=f'<p class="crumbs"><a href="/">Home</a> › <a href="/{c[0]}.html">{c[1]}</a> › {html.escape(title)}</p><span class="tag">{c[1]}</span><h1>{html.escape(title)}</h1><p class="lede">{html.escape(desc)}</p><img src="{img}" alt="Slot Grill at camp: {html.escape(title)}">{h}{fq}{callout(n+3)}{duo()}'
     return shell(title,desc,slug,inner,img,faqld(faq)+crumbld([("Home","/"),(c[1],f"/{c[0]}.html"),(title,f"/{slug}.html")]),side=sidebar(slug,cat)),wc(h+fq)
+EXTRA={}; XFAQ={}
 for f in sorted(glob.glob("content_*.py")): exec(open(f).read())
+PAGES=[(a,b,c,d,e,f+"\n\n"+EXTRA.get(a,""),g+XFAQ.get(a,[])) for a,b,c,d,e,f,g in PAGES]
 open("style.css","w").write(CSS.replace("__HERO__",IMG["c28"]))
 DONE=list(PAGES); WC={}
 for p in PAGES:

@@ -1,0 +1,1 @@
+{ "name":"compactcampinggrill","private":true,"engines":{"node":">=20"},"scripts":{"start":"node server.js","build":"python3 build.py"} }

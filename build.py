@@ -136,3 +136,10 @@ open("sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset x
 open("robots.txt","w").write(f"User-agent: *\nAllow: /\nSitemap: {DOMAIN}/sitemap.xml\n")
 json.dump(WC,open("/tmp/ccg_wc.json","w"))
 print(len(DONE),"articles", sum(WC.values()),"words")
+
+# --- slotgrill.com link trim v3 (Keith, 2026-10-24) ---
+# One working button per page + a few contextual links; other slotgrill.com links become plain text.
+# Run with LINKCUT=0 to build the full-link version. Do not remove: the live sites are trimmed.
+import linkcut, os
+LINKCUT_KEEP={"camp-grill-buying-guide": ["See the Full Size \u00b7 $139.97"], "compact-or-full-size-for-camping": ["See the Compact \u00b7 $79.97"], "index": ["Meet the Slot Grill Compact", "Shop the Full Size", "SlotGrill.com"]}
+linkcut.run(LINKCUT_KEEP, pref='Compact', enabled=os.environ.get("LINKCUT","1")!="0")

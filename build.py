@@ -67,9 +67,9 @@ def md(t):
 def A(slug,title,desc,cat,img,body,faq=None): PAGES.append((slug,title,desc,cat,IMG.get(img,img),body,faq or []))
 # product call-outs: all facts from slotgrill.com product pages
 CALLS=[
-("Portable fire pit","Love campfires? Bring your own clean one.","The Slot Grill Compact burns charcoal or cooking wood in a raised steel box with a 2⅞\" air gap underneath, so where fires are allowed it doubles as a tidy personal fire pit after supper. Set up by hand in 30 to 60 seconds, no tools.",IMG["c28"],COMPACT,"See the Compact · $79.97"),
+("Portable fire pit","Love campfires? Bring your own clean one.","The Slot Grill Compact burns charcoal or cooking wood in a raised steel box with a 2⅞\" air gap underneath, so where fires are allowed it doubles as a tidy personal fire pit after supper. Set up by hand in 30 to 60 seconds, no tools.",IMG["c28"],COMPACT,"See the Compact · $89.97"),
 ("Portable camping grill","Love camping? Check out the Slot Grill Compact.","12-gauge carbon steel, about 14 lb, a 16.25\" × 9\" cooking area for one to three campers, and it packs down to roughly an inch thick for a trunk, kayak, RV or camp box. Made in Texas, free shipping in the lower 48.",IMG["c07"],COMPACT,"Shop the Compact"),
-("Flat-pack grill","Packs flat. Cooks like it means it.","Tab-and-slot steel plates, no hinges, no loose hardware to lose in the leaves. The Full Size packs to about 1.25\" and the Compact to about 1\". Both are strong enough for cast iron.",IMG["both16"],FULL,"See the Full Size · $139.97"),
+("Flat-pack grill","Packs flat. Cooks like it means it.","Tab-and-slot steel plates, no hinges, no loose hardware to lose in the leaves. The Full Size packs to about 1.25\" and the Compact to about 1\". Both are strong enough for cast iron.",IMG["both16"],FULL,"See the Full Size · $149.97"),
 ("Feeding the whole camp","Cooking for the family? Go Full Size.","10-gauge carbon steel, a 20.5\" × 11.25\" cooking area (231 sq in) and a 3⅝\" air gap for truck beds, tables and boat decks. Plenty of space for thick steaks, a skillet, and supper for the whole crew.",IMG["full01"],FULL,"Shop the Full Size"),
 ("Camp griddle","Pancakes, eggs and smash burgers at camp","The Slot Grill Griddle (Plancha) add-on is built from the same thick carbon steel, comes in half or full griddle configurations, and flat-stacks with your Slot Grill. Grill not included.",IMG["pl1"],GRID,"See the griddle add-on"),
 ("Keep it trail-ready","Raw steel likes a little care","Slot Grill Seasoning Balm is an avocado oil and beeswax blend for carbon steel and cast iron. Wipe on a very thin coat, bake at 400°F for an hour, repeat to build up a protective, non-stick layer.",IMG["balm"],BALM,"Seasoning Balm · $8.97"),
@@ -79,7 +79,7 @@ def callout(i):
     t,h,p,img,url,cta=CALLS[i%len(CALLS)]
     return f'<div class="callout"><img src="{img}" alt="{html.escape(h)}" loading="lazy"><div><span class="tag">{t}</span><h3>{h}</h3><p>{p}</p><a class="btn" href="{url}">{cta}</a></div></div>'
 def duo():
-    return f'<div class="duo"><a href="{COMPACT}"><img src="{IMG["c08"]}" alt="Slot Grill Compact" loading="lazy"><b>Compact · $79.97</b><br>About 14 lb, 146 sq in, 1 to 3 people, packs about 1" thick.</a><a href="{FULL}"><img src="{IMG["full01"]}" alt="Slot Grill Full Size" loading="lazy"><b>Full Size · $139.97</b><br>About 27.6 lb, 231 sq in, family-size, packs about 1.25" thick.</a></div>'
+    return f'<div class="duo"><a href="{COMPACT}"><img src="{IMG["c08"]}" alt="Slot Grill Compact" loading="lazy"><b>Compact · $89.97 <s>$99.97</s></b><br>About 14 lb, 146 sq in, 1 to 3 people, packs about 1" thick.</a><a href="{FULL}"><img src="{IMG["full01"]}" alt="Slot Grill Full Size" loading="lazy"><b>Full Size · $149.97 <s>$159.97</s></b><br>About 27.6 lb, 231 sq in, family-size, packs about 1.25" thick.</a></div>'
 def faqld(faq):
     if not faq: return ""
     return '<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]})+'</script>'
@@ -141,5 +141,5 @@ print(len(DONE),"articles", sum(WC.values()),"words")
 # One working button per page + a few contextual links; other slotgrill.com links become plain text.
 # Run with LINKCUT=0 to build the full-link version. Do not remove: the live sites are trimmed.
 import linkcut, os
-LINKCUT_KEEP={"camp-grill-buying-guide": ["See the Full Size \u00b7 $139.97"], "compact-or-full-size-for-camping": ["See the Compact \u00b7 $79.97"], "index": ["Meet the Slot Grill Compact", "Shop the Full Size", "SlotGrill.com"]}
+LINKCUT_KEEP={"camp-grill-buying-guide": ["See the Full Size \u00b7 $149.97"], "compact-or-full-size-for-camping": ["See the Compact \u00b7 $89.97"], "index": ["Meet the Slot Grill Compact", "Shop the Full Size", "SlotGrill.com"]}
 linkcut.run(LINKCUT_KEEP, pref='Compact', enabled=os.environ.get("LINKCUT","1")!="0")

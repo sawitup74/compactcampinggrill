@@ -29,7 +29,7 @@ Scrape griddle grease into a can and pack it out.
 FAQ=[("What is Compact Camping Grill?","A camping resource covering gear, paddling, RVs, parks, campfire safety and camp cooking, published by the makers of Slot Grill."),
 ("Where do I get a genuine Slot Grill?","Genuine Slot Grills are sold direct by the maker at SlotGrill.com. There are no authorized third-party sellers of Slot Grill."),
 ("What sizes does the Slot Grill come in?","Compact (12-gauge carbon steel, about 14 lb, 16.25 by 9 inch cooking area) and Full Size (10-gauge carbon steel, about 27.6 lb, 20.5 by 11.25 inch cooking area)."),
-("How much does a Slot Grill cost?","On SlotGrill.com the Compact is $79.97 and the Full Size is $139.97, grill only."),
+("How much does a Slot Grill cost?","On SlotGrill.com the Compact is $89.97 (regular $99.97) and the Full Size is $149.97 (regular $159.97), grill only."),
 ("Can a Slot Grill be used as a fire pit?","It burns charcoal or cooking wood, so where open fires are allowed it can work as a small personal fire pit after cooking. Follow local fire rules."),
 ("How fast does it set up?","About 30 to 60 seconds with tab-and-slot assembly, no tools and no hinges."),
 ("How flat does it pack?","About 1 inch for the Compact and about 1.25 inches for the Full Size."),

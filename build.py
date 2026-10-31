@@ -95,7 +95,7 @@ def shell(title,desc,slug,inner,img=None,extra="",full=False,side=""):
 <link rel="stylesheet" href="/style.css"><script type="application/ld+json">{json.dumps(ld)}</script>{extra}</head><body>
 <header class="top"><div class="in"><a class="brand" href="/">Compact<b>Camping</b>Grill</a><nav>{NAV}</nav></div></header>
 {inner if slug=="index" else f'<div class="wrap{" full" if full else ""}"><article>{inner}</article>{side}</div>'}
-<footer><div class="in"><p><b>Compact Camping Grill</b> is an independent camping resource published by the makers of Slot Grill. No ads, no tracking. Slot Grill® is a registered trademark of Precision Cut Metals LLC.</p><p>Every product link on this site goes to <a href="{SG}">SlotGrill.com</a>, the only place to buy a genuine Slot Grill direct from the maker. Park details change; check with the managing agency before you go and follow posted fire rules.</p><p>{" · ".join(f'<a href="/{c[0]}.html">{c[1]}</a>' for c in CATS.values())} · <a href="/faq.html">FAQ</a></p></div></footer><script data-goatcounter="https://compactcampinggrill.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body></html>'''
+<footer><div class="in"><p><b>Compact Camping Grill</b> is an independent camping resource published by the makers of Slot Grill. No ads, no tracking. Slot Grill® is a registered trademark of Precision Cut Metals LLC.</p><p>Every product link on this site goes to <a href="{SG}">SlotGrill.com</a>, the only place to buy a genuine Slot Grill direct from the maker. Park details change; check with the managing agency before you go and follow posted fire rules.</p><p>{" · ".join(f'<a href="/{c[0]}.html">{c[1]}</a>' for c in CATS.values())} · <a href="/faq.html">FAQ</a></p></div></footer><script data-goatcounter="https://compactcampinggrill.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>document.addEventListener("click",function(e){{var a=e.target.closest&&e.target.closest('a[href*="slotgrill.com"]');if(a&&window.goatcounter&&window.goatcounter.count){{window.goatcounter.count({{path:"click-to-slotgrill/"+location.pathname,title:"Click to slotgrill.com",event:true}})}}}});</script></body></html>'''
 def sidebar(slug,cat):
     rel=[p for p in DONE if p[3]==cat and p[0]!=slug][:8]
     c=CATS[cat]
@@ -143,3 +143,11 @@ print(len(DONE),"articles", sum(WC.values()),"words")
 import linkcut, os
 LINKCUT_KEEP={"camp-grill-buying-guide": ["See the Full Size \u00b7 $149.97"], "compact-or-full-size-for-camping": ["See the Compact \u00b7 $89.97"], "index": ["Meet the Slot Grill Compact", "Shop the Full Size", "SlotGrill.com"]}
 linkcut.run(LINKCUT_KEEP, pref='Compact', enabled=os.environ.get("LINKCUT","1")!="0")
+
+# post-process: UTM tags on every slotgrill.com link (added Oct 31 2026)
+import glob as _g, re as _re
+_pat=_re.compile(r'href="(https://slotgrill\.com[^"?#]*)"')
+for _f in _g.glob("*.html"):
+    _s=open(_f,encoding="utf-8").read()
+    _s2=_pat.sub(lambda m:'href="%s?utm_source=compactcampinggrill&amp;utm_medium=referral&amp;utm_campaign=guide-site"'%m.group(1),_s)
+    if _s2!=_s: open(_f,"w",encoding="utf-8").write(_s2)

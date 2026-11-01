@@ -18,7 +18,7 @@ Your heat source shapes the whole kitchen. Here are the common options and what 
 
 - **Campground grate or ring.** Free and already there. Also shared with every camper before you, rarely cleaned, often too high or too low over the coals, and sometimes rusted through.
 - **Big bulky grill from home.** Familiar but heavy, awkward to load, and it takes up most of your cargo space.
-- **Cheap folding or disposable grill.** Light but flimsy. Thin legs sink in soft ground, the grate sags under a skillet, and the disposable kind becomes trash after one use.
+- **Cheap or disposable grill.** Light but flimsy. Thin legs sink in soft ground, the grate sags under a skillet, and the disposable kind becomes trash after one use.
 - **A compact steel grill.** Packs flat, sets up fast, holds cast iron, and is clean because it is yours.
 
 We cook on the Slot Grill because it lands in that last group. The Compact gives a 16.25" × 9" cooking area for one to three people and weighs about 14 lb. The Full Size gives 20.5" × 11.25" for a family or group. Both are thick carbon steel and assemble by hand without tools.

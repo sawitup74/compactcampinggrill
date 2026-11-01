@@ -169,7 +169,7 @@ Learn your rig's electrical needs (often 30 or 50 amp), bring the right adapters
 
 Most RVs have a kitchen inside, but cooking outdoors keeps the rig cool, keeps grease and smell out, and is half the fun of camping.
 
-The usual outdoor RV choices include a bulky grill strapped to the back bumper, which takes up storage and rattles over every bump, or cheap folding grills that rust in a season. A flat-pack steel grill makes more sense for RV storage. The Slot Grill Compact packs to about an inch thick, small enough to slide in an RV closet or pass-through bay. The Full Size packs to about an inch and a quarter for families.
+The usual outdoor RV choices include a bulky grill strapped to the back bumper, which takes up storage and rattles over every bump, or cheap thin-steel grills that rust in a season. A flat-pack steel grill makes more sense for RV storage. The Slot Grill Compact packs to about an inch thick, small enough to slide in an RV closet or pass-through bay. The Full Size packs to about an inch and a quarter for families.
 
 ## Fire and RV safety
 

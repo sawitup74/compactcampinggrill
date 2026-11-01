@@ -73,7 +73,7 @@ A flat-pack grill earns its place in an RV because it is thin. The Compact packs
 EXTRA["skillet-chili-at-camp"]="""
 ## Choosing your skillet or pot
 
-A 10 or 12 inch cast iron skillet with tall sides works for four servings. A small Dutch oven works too, if your grill can support it. Heavy cookware needs a heavy-duty grill; the Slot Grill is built from thick carbon steel and is strong enough for cast iron. Thin folding grills and flimsy grates can sag or tip under a full pot of chili, which is not a mess you want near a fire.
+A 10 or 12 inch cast iron skillet with tall sides works for four servings. A small Dutch oven works too, if your grill can support it. Heavy cookware needs a heavy-duty grill; the Slot Grill is built from thick carbon steel and is strong enough for cast iron. Thin hinged grills and flimsy grates can sag or tip under a full pot of chili, which is not a mess you want near a fire.
 
 ## Make-ahead options
 

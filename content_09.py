@@ -50,7 +50,7 @@ Let the fire burn down to ash. Drown with water, stir and drown again. Check wit
 """,[("Can a charcoal grill be used as a fire pit?","The Slot Grill burns charcoal or cooking wood, so where fires are permitted it can serve as a small fire pit after cooking."),("Are portable fire pits allowed in campgrounds?","Rules vary. Check with the park, and note that burn bans may include charcoal."),("What should I burn in a portable fire pit?","Only charcoal or clean, dry firewood, bought locally where required.")])
 
 A("camp-grill-buying-guide","Choosing a Camp Grill: Skip the Bulky, Skip the Flimsy","What to look for in a camping grill, and why the oversized grills and the cheap, wobbly ones both let campers down.","kitchen","both16","""
-Walk into any outdoor store and you'll see two kinds of camping grills. On one side are big, bulky grills: heavy boxy portables and wheeled units with lids, legs and side tables, designed for patios and stuffed into campers' trunks anyway. On the other are the cheap ones: thin folding grills, rickety tabletop models and disposable foil trays. Most campers buy one, regret it, and end up cooking on the campground's grate. Here's how to choose better.
+Walk into any outdoor store and you'll see two kinds of camping grills. On one side are big, bulky grills: heavy boxy portables and wheeled units with lids, legs and side tables, designed for patios and stuffed into campers' trunks anyway. On the other are the cheap ones: thin hinged grills, rickety tabletop models and disposable foil trays. Most campers buy one, regret it, and end up cooking on the campground's grate. Here's how to choose better.
 
 ## The trouble with bulky grills
 

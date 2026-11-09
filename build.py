@@ -169,3 +169,7 @@ for _f in _g.glob("*.html"):
     _s=open(_f,encoding="utf-8").read()
     _s2=_pat.sub(lambda m:'href="%s?utm_source=compactcampinggrill&amp;utm_medium=referral&amp;utm_campaign=guide-site"'%m.group(1),_s)
     if _s2!=_s: open(_f,"w",encoding="utf-8").write(_s2)
+
+# Indexing post-process (2026-11-09): 404 noindex, redirect stubs without noindex, real sitemap lastmod
+import subprocess as _sp, sys as _sys
+_sp.run([_sys.executable, "postfix_indexing.py"])

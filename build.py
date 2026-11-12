@@ -86,6 +86,15 @@ def faqld(faq):
 def crumbld(items):
     return '<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":html.unescape(n),"item":DOMAIN+u} for i,(n,u) in enumerate(items)]})+'</script>'
 NAV="".join(f'<a href="/{c[0]}.html">{html.unescape(c[1]).split(",")[0].split(" &")[0]}</a>' for c in CATS.values())+'<a href="/faq.html">FAQ</a>'
+# --- Search Console schema helpers ---
+# Guide sites do not sell products and have no reviews. Do not emit Product
+# JSON-LD (Search Console flags missing aggregateRating/review). Use Brand.
+def product_schema_compact(valid_from="2026-11-04"):
+    return {"@type":"Brand","name":"Slot Grill","url":"https://slotgrill.com/"}
+def product_schema_aggregate(valid_from="2026-11-04"):
+    return {"@type":"Brand","name":"Slot Grill","url":"https://slotgrill.com/"}
+# --- end schema helpers ---
+
 def shell(title,desc,slug,inner,img=None,extra="",full=False,side=""):
     canon=DOMAIN+("/" if slug=="index" else f"/{slug}.html")
     ld={"@context":"https://schema.org","@type":"WebSite" if slug=="index" else "Article","name":title,"headline":title,"url":canon,"image":img or IMG["c28"],"publisher":{"@type":"Organization","name":"Compact Camping Grill"},"about":product_schema_aggregate("2026-11-06")}
@@ -148,22 +157,6 @@ linkcut.run(LINKCUT_KEEP, pref='Compact', enabled=os.environ.get("LINKCUT","1")!
 import glob as _g, re as _re
 
 
-# --- Search Console Product schema helpers (synced from slotgrill.com 2026-11-06) ---
-_SG_COMPACT_URL = "https://slotgrill.com/products/slot-grill-compact-carbon-steel-free-shipping"
-_SG_FULL_URL = "https://slotgrill.com/products/slot-grill-carbon-steel-collapsible-bbq-grill"
-_SG_IMG_COMPACT = "https://cdn.shopify.com/s/files/1/0721/8833/0172/files/compact-07.jpg?v=1792382833"
-_SG_IMG_FULL = "https://cdn.shopify.com/s/files/1/0721/8833/0172/files/full-size-01.jpg?v=1792382862"
-_SG_IMG_BOTH = "https://cdn.shopify.com/s/files/1/0721/8833/0172/files/both-16.jpg?v=1792382825"
-_SG_US_LOWER_48 = ["AL","AZ","AR","CA","CO","CT","DE","DC","FL","GA","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"]
-_SG_SHIPPING = {"@type":"OfferShippingDetails","shippingRate":{"@type":"MonetaryAmount","value":0,"currency":"USD"},"shippingDestination":{"@type":"DefinedRegion","addressCountry":"US","addressRegion":_SG_US_LOWER_48},"deliveryTime":{"@type":"ShippingDeliveryTime","handlingTime":{"@type":"QuantitativeValue","minValue":1,"maxValue":3,"unitCode":"DAY"},"transitTime":{"@type":"QuantitativeValue","minValue":2,"maxValue":5,"unitCode":"DAY"},"businessDays":{"@type":"OpeningHoursSpecification","dayOfWeek":["https://schema.org/Monday","https://schema.org/Tuesday","https://schema.org/Wednesday","https://schema.org/Thursday","https://schema.org/Friday"]}}}
-_SG_RETURN = {"@type":"MerchantReturnPolicy","applicableCountry":"US","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":30,"returnMethod":"https://schema.org/ReturnByMail","returnFees":"https://schema.org/ReturnShippingFees","itemCondition":"https://schema.org/NewCondition"}
-def _sg_offer(name, price, url, valid_from):
-    return {"@type":"Offer","name":name,"price":price,"priceCurrency":"USD","priceValidUntil":"2027-12-31","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":url,"validFrom":valid_from,"seller":{"@type":"Organization","name":"Slot Grill"},"shippingDetails":_SG_SHIPPING,"hasMerchantReturnPolicy":_SG_RETURN}
-def product_schema_compact(valid_from="2026-11-04"):
-    return {"@type":"Product","name":"Slot Grill Compact","brand":{"@type":"Brand","name":"Slot Grill"},"manufacturer":{"@type":"Organization","name":"Precision Cut Metals LLC"},"url":_SG_COMPACT_URL,"image":_SG_IMG_COMPACT,"description":"Slot Grill Compact - Carbon Steel. Flat-pack charcoal grill at 80% of Full Size scale. 12-gauge carbon steel, about 14 lb, 16.25\" x 9\" cooking area (146 sq in). Tab and slot assembly, no tools, packs flat to about 1\". Made in Texas. Free shipping in the lower 48.","offers":_sg_offer("Slot Grill Compact (Grill Only)","89.97",_SG_COMPACT_URL,valid_from)}
-def product_schema_aggregate(valid_from="2026-11-04"):
-    return {"@type":"Product","name":"Slot Grill","brand":{"@type":"Brand","name":"Slot Grill"},"manufacturer":{"@type":"Organization","name":"Precision Cut Metals LLC"},"url":"https://slotgrill.com/","image":[_SG_IMG_COMPACT,_SG_IMG_FULL,_SG_IMG_BOTH],"description":"Slot Grill is a flat-pack carbon steel charcoal grill made by Precision Cut Metals LLC in Buna, Texas. Two models: Compact (12-gauge, about 14 lb) and Full Size (10-gauge, about 27.6 lb). Assembles without tools and packs flat. Free shipping in the lower 48.","offers":{"@type":"AggregateOffer","lowPrice":"89.97","highPrice":"149.97","priceCurrency":"USD","offerCount":2,"availability":"https://schema.org/InStock","offers":[_sg_offer("Slot Grill Compact (Grill Only)","89.97",_SG_COMPACT_URL,valid_from),_sg_offer("Slot Grill Full Size (Grill Only)","149.97",_SG_FULL_URL,valid_from)]}}
-# --- end Product schema helpers ---
 _pat=_re.compile(r'href="(https://slotgrill\.com[^"?#]*)"')
 for _f in _g.glob("*.html"):
     _s=open(_f,encoding="utf-8").read()
